@@ -1,0 +1,17 @@
+<div [formGroup]="form">
+  <!-- <label [attr.for]="question.key">{{question.label}}</label> -->
+
+  <div [ngSwitch]="question.controlType">
+
+    <dx-text-box *ngSwitchCase="'textbox'"
+      placeholder="{{question.label}}"
+
+      stylingMode="underlined" [showClearButton]="true" labelMode="floating"
+      [formControlName]="question.key"></dx-text-box>
+
+    <dx-select-box *ngSwitchCase="'selectbox'" [dataSource]="question.options" displayExpr="value" valueExpr="key"
+      placeholder="{{question.label}}" [showClearButton]="true" [formControlName]="question.key" stylingMode="underlined"
+      [showClearButton]="true" labelMode="floating"></dx-select-box>
+
+  </div>
+</div>

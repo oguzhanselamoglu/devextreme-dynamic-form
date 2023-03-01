@@ -1,0 +1,23 @@
+<div class="container-fluid mt-2 mb-2">
+  <div class="qm-pr-content mt-4">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+      <div *ngFor="let question of questions " class="row">
+        <div class="col-md-6 mt-2">
+          <app-question [question]="question" [form]="form"></app-question>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <dx-button stylingMode="contained" type="default" text="Save" width="136" (onClick)="onSubmit()">
+          </dx-button>
+        </div>
+      </div>
+
+    </form>
+
+    <div *ngIf="payLoad" class="form-row">
+      <strong>Saved the following values</strong><br>{{payLoad}}
+    </div>
+  </div>
+</div>
